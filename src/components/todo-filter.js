@@ -1,15 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { setFilter } from '../actions'
-import {FilterTypes} from "../constants";
+import {FilterNames, FilterTypes} from "../constants";
+import TodoFilterButton from "./todo-filter-button";
 
 const TodoFilter = ({ filter, setFilter }) => (
-    <div>
+    <>
         <span>{filter}</span>
-        <button onClick={() => { setFilter(FilterTypes.SHOW_ALL) }}>All</button>
-        <button onClick={() => { setFilter(FilterTypes.SHOW_ACTIVE) }}>Active</button>
-        <button onClick={() => { setFilter(FilterTypes.SHOW_DONE) }}>Done</button>
-    </div>
+        <ul>
+            {
+                Object.keys(FilterTypes).map(filterType =>
+                    <li>
+                        <TodoFilterButton
+                            name={FilterNames[filterType]}
+                            setFilter={() => { setFilter(FilterTypes[filterType]) }}
+                            active={filter === FilterTypes[filterType]}
+                        />
+                    </li>
+                )
+            }
+        </ul>
+    </>
 );
 
 const mapStateToProps = state => ({
@@ -19,6 +31,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     setFilter: (filterType) => { dispatch(setFilter(filterType)) }
 });
+
+TodoFilter.propTypes = {
+    filter: PropTypes.string.isRequired,
+    setFilter: PropTypes.func.isRequired
+};
 
 export default connect(
     mapStateToProps,
