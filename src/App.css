@@ -1,0 +1,63 @@
+.wrapper {
+    background-color: white;
+    margin: 50px auto;
+    width: 80%;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 5px 20px 5px rgba(0,0,0,0.19);
+}
+
+.input-container {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.form-group {
+    width: 85%;
+}
+
+.filter-container {
+    width: 90%;
+    margin: auto;
+
+}
+
+.todo-list{
+    width: 90%;
+    margin: auto;
+    padding-top: 15px;
+}
+
+ul {
+    margin: 0;
+    padding: 0
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: .5rem;
+}
+
+.check-input {
+    margin-right: 5px;
+}
+
+.btn-item-container {
+    display: flex;
+    width: 15%;
+    justify-content: space-between;
+}
+
+.btn-item {
+    padding: 0;
+    line-height: 0;
+}
+
+

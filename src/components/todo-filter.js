@@ -6,22 +6,22 @@ import {FilterNames, FilterTypes} from "../constants";
 import TodoFilterButton from "./todo-filter-button";
 
 const TodoFilter = ({ filter, setFilter }) => (
-    <>
-        <span>{filter}</span>
-        <ul>
+    <div className={'filter-container'}>
+        <div className={'btn-group'}>
             {
                 Object.keys(FilterTypes).map(filterType =>
-                    <li>
-                        <TodoFilterButton
-                            name={FilterNames[filterType]}
-                            setFilter={() => { setFilter(FilterTypes[filterType]) }}
-                            active={filter === FilterTypes[filterType]}
-                        />
-                    </li>
+
+                    <TodoFilterButton
+                        name={FilterNames[filterType]}
+                        setFilter={() => { setFilter(FilterTypes[filterType]) }}
+                        active={filter === FilterTypes[filterType]}
+                    />
+
                 )
             }
-        </ul>
-    </>
+        </div>
+        <span>{filter}</span>
+    </div>
 );
 
 const mapStateToProps = state => ({

@@ -7,14 +7,22 @@ const TodoForm = ({ addTodo }) => {
     const [value, setValue] = useState('');
 
     return(
-        <div>
-            <input
-                type="text"
-                placeholder="Enter todo"
-                value={value}
-                onChange={event => setValue(event.target.value)}
-            />
-            <button onClick={() => { addTodo(value) }}>Add</button>
+        <div className="input-container">
+            <div className={'form-group'}>
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter todo"
+                    value={value}
+                    onChange={event => setValue(event.target.value)}
+                />
+            </div>
+            <div>
+                <button onClick={() => { addTodo(value) }}
+                        className="btn btn-primary">
+                    Add
+                </button>
+            </div>
         </div>
     );
 };
