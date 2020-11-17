@@ -1,35 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const TodoListItem = ({title, removeTodo}) => {
+const TodoListItem = ({todo, removeTodo, updateTodo}) => {
 
     return(
         <li>
             <span>
-                <input
-                    className="check-input"
-                    type="checkbox"
-                    />
-                {title}
+                {todo.title}
             </span>
             <div className={'btn-item-container'}>
                 <button
                     className={'btn btn-outline-success btn-item'}
                     id={'btn-edit'}
-
+                    onClick={() => updateTodo()}
                 >
-                <span className="material-icons">
-                    create
-                </span>
+                    <span className="material-icons">
+                        done
+                    </span>
                 </button>
                 <button
                     className={'btn btn-outline-danger btn-item'}
                     id={'btn-delete'}
                     onClick={() => removeTodo()}
                 >
-                <span className="material-icons">
-                    delete_forever
-                </span>
+                    <span className="material-icons">
+                        delete_forever
+                    </span>
                 </button>
             </div>
         </li>

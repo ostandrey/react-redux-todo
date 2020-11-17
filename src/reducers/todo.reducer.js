@@ -26,10 +26,13 @@ const todoReducer = (state = initialState, action) => {
                     completed: false
                 }
             ];
-        // case TodoActions.TODO_UPDATE:
-            // const indexTodo = state.findIndex(todos => {
-            //     return todos.id === id
-            // });
+        case TodoActions.TODO_UPDATE:
+            return state.map(todo => {
+                if (todo.id === action.payload) {
+                    todo.completed = !todo.completed;
+                }
+                return todo
+            });
         case TodoActions.TODO_DELETE:
             // const indexTodo = state.findIndex((todo) => {
             //     return todo.id === action.payload

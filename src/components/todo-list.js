@@ -2,17 +2,18 @@ import React from 'react'
 import { connect } from 'react-redux'
 import TodoListItem from "./todo-item";
 import PropTypes from "prop-types";
-import {removeTodo} from "../actions/todos.actions";
+import {removeTodo, updateTodo} from "../actions/todos.actions";
 
-const TodoList = ({ todos, removeTodo }) => {
+const TodoList = ({ todos, removeTodo, updateTodo }) => {
     return (
         <div className={'todo-list'}>
             <ul>
                 {
                     todos.map( todo =>
                         <TodoListItem
-                            title={todo.title}
+                            todo = {todo}
                             removeTodo = {() => { removeTodo(todo.id) }}
+                            updateTodo = {() => { updateTodo(todo.id) }}
                         />)
                 }
             </ul>
@@ -29,7 +30,8 @@ TodoListItem.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-    removeTodo: (id) => { dispatch(removeTodo(id)) }
+    removeTodo: (id) => { dispatch(removeTodo(id)) },
+    updateTodo: (id) => { dispatch(updateTodo(id)) }
 });
 
 

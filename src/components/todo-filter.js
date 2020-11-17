@@ -20,7 +20,6 @@ const TodoFilter = ({ filter, setFilter }) => (
                 )
             }
         </div>
-        <span>{filter}</span>
     </div>
 );
 

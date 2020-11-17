@@ -60,4 +60,6 @@ li {
     line-height: 0;
 }
 
-
+.done {
+    text-decoration: line-through;
+}
