@@ -12,6 +12,7 @@ const TodoFilter = ({ filter, setFilter }) => (
                 Object.keys(FilterTypes).map(filterType =>
 
                     <TodoFilterButton
+                        key={FilterNames[filterType]}
                         name={FilterNames[filterType]}
                         setFilter={() => { setFilter(FilterTypes[filterType]) }}
                         active={filter === FilterTypes[filterType]}

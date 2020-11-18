@@ -4,6 +4,7 @@ import classnames from 'classnames'
 
 const TodoFilterButton = ({ name, setFilter, active = false }) => (
     <button
+        key={name}
         type="button"
         className={classnames('btn-filter btn btn-secondary', {'btn-filter-selected': active})}
         onClick={() => setFilter()}

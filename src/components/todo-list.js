@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import TodoListItem from "./todo-item";
 import PropTypes from "prop-types";
 import {removeTodo, updateTodo} from "../actions/todos.actions";
+import {getFilteredTodos} from "../selectors";
 
 const TodoList = ({ todos, removeTodo, updateTodo }) => {
     return (
@@ -11,6 +12,7 @@ const TodoList = ({ todos, removeTodo, updateTodo }) => {
                 {
                     todos.map( todo =>
                         <TodoListItem
+                            key={todo.id}
                             todo = {todo}
                             removeTodo = {() => { removeTodo(todo.id) }}
                             updateTodo = {() => { updateTodo(todo.id) }}
@@ -22,11 +24,11 @@ const TodoList = ({ todos, removeTodo, updateTodo }) => {
 };
 
 const mapStateToProps = state => ({
-    todos: state.todos
+    todos: getFilteredTodos(state)
 });
 
 TodoListItem.propTypes = {
-    title: PropTypes.string.isRequired
+    todo: PropTypes.object.isRequired
 };
 
 const mapDispatchToProps = dispatch => ({

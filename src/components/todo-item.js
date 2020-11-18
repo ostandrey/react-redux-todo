@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classnames from "classnames";
 
 const TodoListItem = ({todo, removeTodo, updateTodo}) => {
 
     return(
         <li>
-            <span>
+            <span className={classnames({'title-decoration': todo.completed})}>
                 {todo.title}
             </span>
             <div className={'btn-item-container'}>
@@ -33,7 +34,7 @@ const TodoListItem = ({todo, removeTodo, updateTodo}) => {
 };
 
 TodoListItem.propTypes = {
-    title: PropTypes.string.isRequired
+    todo: PropTypes.object.isRequired
 };
 
 export default TodoListItem

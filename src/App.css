@@ -60,6 +60,10 @@ li {
     line-height: 0;
 }
 
-.done {
+.title-decoration {
     text-decoration: line-through;
+    color: red;
+    transition-duration: .2s;
+    transition-timing-function: ease-out;
 }
+
